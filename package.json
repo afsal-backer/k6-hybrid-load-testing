@@ -1,0 +1,23 @@
+{
+  "name": "k6-hybrid-load-test",
+  "version": "1.0.0",
+  "description": "K6 hybrid load testing with TypeScript",
+  "author": "Afsal Backer",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/k6": "^0.54.0",
+    "dotenv": "^16.4.5",
+    "esbuild": "0.24.0",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "scripts": {
+    "demo": "k6 run --compatibility-mode=experimental_enhanced src/k6-demo.ts",
+    "api": "k6 run --compatibility-mode=experimental_enhanced src/api-test.ts",
+    "browser": "K6_BROWSER_HEADLESS=false k6 run --compatibility-mode=experimental_enhanced src/browser-test.ts",
+    "har": "k6 run --compatibility-mode=experimental_enhanced src/har-test.ts",
+    "hybrid": "K6_BROWSER_HEADLESS=false k6 run --compatibility-mode=experimental_enhanced --log-output=file=./logs/hybrid-test.log src/hybrid-test.ts",
+    "cloud": "K6_CLOUD_PROJECT_ID= k6 cloud --compatibility-mode=experimental_enhanced --log-output=file=./logs/hybrid-test.log src/hybrid-test.ts"
+  }
+}
